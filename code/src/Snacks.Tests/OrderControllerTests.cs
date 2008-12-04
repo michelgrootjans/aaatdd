@@ -2,11 +2,12 @@ using NUnit.Framework;
 using Rhino.Mocks;
 using TestUtilities;
 using Utilities;
+using Utilities.Repository;
 
 namespace Snacks.Tests
 {
     [TestFixture]
-    public class when_ordercontroller_is_told_to_place_a_new_order : ArrangeActAssert<IOrderController>
+    public class when_ordercontroller_is_told_to_place_a_new_order : ArrangeActAssert<ISnackOrderController>
     {
         private IMapper<SnackOrderDto, SnackOrder> mapper;
         private SnackOrderDto snackOrderDto;
@@ -29,7 +30,7 @@ namespace Snacks.Tests
             repository.Stub(r => r.Get<User>(userId)).Return(user);
         }
 
-        public override IOrderController CreateSUT()
+        public override ISnackOrderController CreateSUT()
         {
             return new OrderController(repository);
         }
@@ -50,7 +51,6 @@ namespace Snacks.Tests
         [Test]
         public void should_save_the_order_to_the_repository()
         {
-            mapper.AssertWasCalled(m => m.Map(snackOrderDto));
             repository.AssertWasCalled(r => r.Save(snackOrder));
         }
     }

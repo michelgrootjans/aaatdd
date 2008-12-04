@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Utilities
+namespace Utilities.Repository
 {
     /// <summary>
     /// The base repository interface for all repositories

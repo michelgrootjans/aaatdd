@@ -37,7 +37,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOrderController.cs" />
+    <Compile Include="ISnackOrderController.cs" />
     <Compile Include="SnackOrder.cs" />
     <Compile Include="OrderController.cs" />
     <Compile Include="SnackOrderDto.cs" />
