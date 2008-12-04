@@ -54,7 +54,7 @@
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Utilities\Utilities.csproj">
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{1142ADBF-0C06-45B7-BBA8-2CE293D502A7}</Project>
       <Name>Utilities</Name>
     </ProjectReference>
