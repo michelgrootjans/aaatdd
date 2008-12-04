@@ -1,6 +1,6 @@
 namespace Snacks
 {
-    public class User
+    public class User : IDebitableUser
     {
         public double Credit { get;private set; }
 
@@ -13,5 +13,10 @@ namespace Snacks
         {
             Credit -= amount;
         }
+    }
+
+    public interface IDebitableUser
+    {
+        void Debit(double amount);
     }
 }
