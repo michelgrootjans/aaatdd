@@ -14,7 +14,7 @@ namespace Snacks
 
         public void RegisterOrder(SnackOrderDto snackOrderDto)
         {
-            var user = repository.Get<IDebitableUser>(snackOrderDto.UserId);
+            var user = repository.Get<User>(snackOrderDto.UserId);
             user.Debit(snackOrderDto.Price);
             repository.Save(user);
 
