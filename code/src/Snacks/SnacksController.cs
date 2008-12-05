@@ -3,11 +3,11 @@ using Utilities.Repository;
 
 namespace Snacks
 {
-    public class OrderController : ISnackOrderController
+    public class SnacksController : ISnacksController
     {
         private readonly IRepository repository;
 
-        public OrderController(IRepository repository)
+        public SnacksController(IRepository repository)
         {
             this.repository = repository;
         }

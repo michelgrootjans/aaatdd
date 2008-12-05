@@ -7,7 +7,7 @@ using Utilities.Repository;
 namespace Snacks.Tests
 {
     [TestFixture]
-    public class when_ordercontroller_is_told_to_place_a_new_order : ArrangeActAssert<ISnackOrderController>
+    public class when_ordercontroller_is_told_to_place_a_new_order : ArrangeActAssert<ISnacksController>
     {
         private IMapper<SnackOrderDto, Snack> mapper;
         private SnackOrderDto snackDto;
@@ -16,7 +16,7 @@ namespace Snacks.Tests
         private User user;
         private double originalUserCredit = 25;
         private long userId = 54;
-
+            
         public override void Arrange()
         {
             snackDto = new SnackOrderDto{UserId = userId, Price = 2};
@@ -30,9 +30,9 @@ namespace Snacks.Tests
             repository.Stub(r => r.Get<User>(userId)).Return(user);
         }
 
-        public override ISnackOrderController CreateSUT()
+        public override ISnacksController CreateSUT()
         {
-            return new OrderController(repository);
+            return new SnacksController(repository);
         }
 
         public override void Act()
