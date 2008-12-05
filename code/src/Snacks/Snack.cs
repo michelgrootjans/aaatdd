@@ -1,6 +1,6 @@
 namespace Snacks
 {
-    public class SnackOrder
+    public class Snack
     {
         
     }

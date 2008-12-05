@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="ApplicationStartup.cs" />
     <Compile Include="ISnackOrderController.cs" />
-    <Compile Include="SnackOrder.cs" />
+    <Compile Include="Snack.cs" />
     <Compile Include="OrderController.cs" />
     <Compile Include="SnackOrderDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
