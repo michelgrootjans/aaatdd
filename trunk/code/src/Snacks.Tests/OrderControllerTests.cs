@@ -9,24 +9,24 @@ namespace Snacks.Tests
     [TestFixture]
     public class when_ordercontroller_is_told_to_place_a_new_order : ArrangeActAssert<ISnackOrderController>
     {
-        private IMapper<SnackOrderDto, SnackOrder> mapper;
-        private SnackOrderDto snackOrderDto;
+        private IMapper<SnackOrderDto, Snack> mapper;
+        private SnackOrderDto snackDto;
         private IRepository repository;
-        private SnackOrder snackOrder;
+        private Snack clubSandwich;
         private User user;
         private double originalUserCredit = 25;
         private long userId = 54;
 
         public override void Arrange()
         {
-            mapper = RegisterStubInContainer<IMapper<SnackOrderDto, SnackOrder>>();
-            repository = Dependency<IRepository>();
-            snackOrderDto = new SnackOrderDto{Price = 2, UserId = userId};
-            
+            snackDto = new SnackOrderDto{UserId = userId, Price = 2};
             user =  new User(originalUserCredit);
-            snackOrder = new SnackOrder();
+            clubSandwich = new Snack();
 
-            mapper.Stub(m => m.Map(snackOrderDto)).Return(snackOrder);
+            mapper = RegisterStubInContainer<IMapper<SnackOrderDto, Snack>>();
+            repository = Dependency<IRepository>();
+
+            mapper.Stub(m => m.Map(snackDto)).Return(clubSandwich);
             repository.Stub(r => r.Get<User>(userId)).Return(user);
         }
 
@@ -37,21 +37,25 @@ namespace Snacks.Tests
 
         public override void Act()
         {
-            sut.RegisterOrder(snackOrderDto);
+            sut.Request(snackDto);
         }
 
         [Test]
         public void should_debit_the_order_amount_from_the_users_credit()
         {
-            repository.AssertWasCalled(r => r.Get<User>(snackOrderDto.UserId));
-            user.Credit.ShouldBeEqualTo(originalUserCredit - snackOrderDto.Price);
+            user.Credit.ShouldBeEqualTo(originalUserCredit - snackDto.Price);
+        }
+
+        [Test]
+        public void should_save_the_user_to_the_repository()
+        {
             repository.AssertWasCalled(r => r.Save(user));
         }
 
         [Test]
         public void should_save_the_order_to_the_repository()
         {
-            repository.AssertWasCalled(r => r.Save(snackOrder));
+            repository.AssertWasCalled(r => r.Save(clubSandwich));
         }
     }
 

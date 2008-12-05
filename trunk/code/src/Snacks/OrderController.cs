@@ -12,13 +12,13 @@ namespace Snacks
             this.repository = repository;
         }
 
-        public void RegisterOrder(SnackOrderDto snackOrderDto)
+        public void Request(SnackOrderDto snackOrderDto)
         {
             var user = repository.Get<User>(snackOrderDto.UserId);
             user.Debit(snackOrderDto.Price);
             repository.Save(user);
 
-            var order = Map.This(snackOrderDto).ToA<SnackOrder>();
+            var order = Map.This(snackOrderDto).ToA<Snack>();
             repository.Save(order);
         }
     }

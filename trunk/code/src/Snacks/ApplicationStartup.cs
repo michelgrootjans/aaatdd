@@ -23,7 +23,7 @@
 
 
 //            var persistenceModel = AutoPersistenceModel
-//                .MapEntitiesFromAssemblyOf<SnackOrder>()
+//                .MapEntitiesFromAssemblyOf<Snack>()
 //                .Where(t => t.Namespace == "Snacks.Entities");
 //            persistenceModel.Configure(config);
 //        }
