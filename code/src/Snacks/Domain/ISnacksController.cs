@@ -1,4 +1,6 @@
-namespace Snacks
+using Snacks.Dto;
+
+namespace Snacks.Domain
 {
     public interface ISnacksController
     {

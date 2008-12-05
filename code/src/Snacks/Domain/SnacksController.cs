@@ -1,7 +1,9 @@
+using Snacks.Domain.Entities;
+using Snacks.Dto;
 using Utilities.Mapping;
 using Utilities.Repository;
 
-namespace Snacks
+namespace Snacks.Domain
 {
     public class SnacksController : ISnacksController
     {
