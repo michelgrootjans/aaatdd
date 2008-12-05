@@ -33,7 +33,7 @@ namespace TestUtilities
             OnTearDown();
         }
 
-        protected S RegisterStubInContainer<S>() where S : class
+        protected S RegisterDependencyInContainer<S>() where S : class
         {
             S s = MockRepository.GenerateStub<S>();
             Container.Register(s);
@@ -42,7 +42,7 @@ namespace TestUtilities
 
         protected S DependencyInContainer<S>() where S : class
         {
-            return RegisterStubInContainer<S>();
+            return RegisterDependencyInContainer<S>();
         }
 
         protected S Dependency<S>() where S : class
@@ -50,10 +50,8 @@ namespace TestUtilities
             return MockRepository.GenerateStub<S>();
         }
 
-        /// <summary>
-        /// Called when [fixture tear down].
-        /// </summary>
         public virtual void OnTearDown() { }
+
     }
 
     public class ArrangeActAssert<T> : ArrangeActAssert

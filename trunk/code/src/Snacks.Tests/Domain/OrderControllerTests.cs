@@ -1,10 +1,13 @@
 using NUnit.Framework;
 using Rhino.Mocks;
+using Snacks.Domain;
+using Snacks.Domain.Entities;
+using Snacks.Dto;
 using TestUtilities;
 using Utilities;
 using Utilities.Repository;
 
-namespace Snacks.Tests
+namespace Snacks.Tests.Domain
 {
     [TestFixture]
     public class when_ordercontroller_is_told_to_place_a_new_order : ArrangeActAssert<ISnacksController>
@@ -23,7 +26,7 @@ namespace Snacks.Tests
             user =  new User(originalUserCredit);
             clubSandwich = new Snack();
 
-            mapper = RegisterStubInContainer<IMapper<SnackOrderDto, Snack>>();
+            mapper = RegisterDependencyInContainer<IMapper<SnackOrderDto, Snack>>();
             repository = Dependency<IRepository>();
 
             mapper.Stub(m => m.Map(snackDto)).Return(clubSandwich);
@@ -58,5 +61,4 @@ namespace Snacks.Tests
             repository.AssertWasCalled(r => r.Save(clubSandwich));
         }
     }
-
 }
