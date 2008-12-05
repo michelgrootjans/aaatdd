@@ -1,6 +1,6 @@
 namespace Snacks
 {
-    public interface ISnackOrderController
+    public interface ISnacksController
     {
         void Request(SnackOrderDto snackOrderDto);
     }
