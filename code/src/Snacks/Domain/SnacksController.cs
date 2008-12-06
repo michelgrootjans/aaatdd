@@ -16,9 +16,9 @@ namespace Snacks.Domain
 
         public void Request(SnackOrderDto snackOrderDto)
         {
-            var user = repository.Get<User>(snackOrderDto.UserId);
-            user.Debit(snackOrderDto.Price);
-            repository.Save(user);
+            //var user = repository.Get<User>(snackOrderDto.UserId);
+            //user.Debit(snackOrderDto.SnackPrice);
+            //repository.Save(user);
 
             var order = Map.This(snackOrderDto).ToA<Snack>();
             repository.Save(order);

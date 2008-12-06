@@ -2,9 +2,6 @@
 
 namespace Utilities.Containers
 {
-    /// <summary>
-    /// Arta exception
-    /// </summary>
     public class UnsatisfiedDependencyException : Exception
     {
         public UnsatisfiedDependencyException()

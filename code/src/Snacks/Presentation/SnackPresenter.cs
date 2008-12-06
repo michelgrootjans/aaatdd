@@ -6,10 +6,10 @@ using Utilities.Mapping;
 
 namespace Snacks.Presentation
 {
-    public class SnackPresenter : ISnackPresenter
+    public class SnackPresenter : ISnackOrderPresenter
     {
         private readonly ISnackOrderView view;
-        private ISnacksController controller;
+        private readonly ISnacksController controller;
 
         public SnackPresenter(ISnackOrderView snackOrderView)
         {

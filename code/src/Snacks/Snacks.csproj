@@ -49,11 +49,17 @@
     <Compile Include="ApplicationStartup.cs" />
     <Compile Include="Domain\ISnacksController.cs" />
     <Compile Include="Domain\Entities\Snack.cs" />
+    <Compile Include="Domain\SnackDtoMapper.cs" />
     <Compile Include="Domain\SnacksController.cs" />
     <Compile Include="Dto\SnackOrderDto.cs" />
+    <Compile Include="Presentation\IPresenter.cs" />
+    <Compile Include="Presentation\IPresenterFactory.cs" />
     <Compile Include="Presentation\ISnackOrderView.cs" />
-    <Compile Include="Presentation\ISnackPresenter.cs" />
+    <Compile Include="Presentation\ISnackOrderPresenter.cs" />
+    <Compile Include="Presentation\IView.cs" />
+    <Compile Include="Presentation\PresenterFactory.cs" />
     <Compile Include="Presentation\SnackPresenter.cs" />
+    <Compile Include="Presentation\SnackViewMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Entities\User.cs" />
   </ItemGroup>

@@ -2,12 +2,12 @@ using System;
 
 namespace Snacks.Presentation
 {
-    public interface ISnackOrderView
+    public interface ISnackOrderView : IView
     {
         event EventHandler RequestSnack;
 
-        long UserId { get; }
+        string UserId { get; }
         string SnackName { get; }
-        double SnackPrice { get; }
+        string SnackPrice { get; }
     }
 }

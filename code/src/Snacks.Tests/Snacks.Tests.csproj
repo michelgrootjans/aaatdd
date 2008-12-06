@@ -46,7 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\OrderControllerTests.cs" />
+    <Compile Include="Domain\SnackDtoMapperTests.cs" />
+    <Compile Include="Presentation\PresenterFactoryTests.cs" />
     <Compile Include="Presentation\SnackRequsestPresenterTests.cs" />
+    <Compile Include="Presentation\SnackViewMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

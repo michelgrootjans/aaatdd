@@ -1,4 +1,5 @@
 using System;
+using Utilities.Extensions;
 
 namespace Utilities.Containers
 {
@@ -22,7 +23,11 @@ namespace Utilities.Containers
 
         public static T GetImplementationOf<T>() where T : class
         {
-            return _container.GetImplementationOf<T>();
+            var implementation = _container.GetImplementationOf<T>();
+            if (implementation.IsNull())
+                throw new UnsatisfiedDependencyException(string.Format("Couldn't find an implementation of '{0}'",
+                                                                       typeof (T)));
+            return implementation;
         }
     }
 }
