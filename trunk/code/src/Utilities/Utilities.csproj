@@ -40,6 +40,8 @@
     <Compile Include="Containers\Container.cs" />
     <Compile Include="Containers\DictionaryContainer.cs" />
     <Compile Include="Containers\IContainer.cs" />
+    <Compile Include="Domain\Entity.cs" />
+    <Compile Include="Domain\IEntity.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Mapping\IMapper.cs" />
     <Compile Include="Presentation\IPresenter.cs" />
