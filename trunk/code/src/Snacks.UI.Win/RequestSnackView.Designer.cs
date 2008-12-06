@@ -50,13 +50,14 @@
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(100, 20);
             this.txtUserId.TabIndex = 1;
+            this.txtUserId.Text = "1";
             // 
             // btnRequestSnack
             // 
             this.btnRequestSnack.Location = new System.Drawing.Point(177, 238);
             this.btnRequestSnack.Name = "btnRequestSnack";
             this.btnRequestSnack.Size = new System.Drawing.Size(103, 23);
-            this.btnRequestSnack.TabIndex = 2;
+            this.btnRequestSnack.TabIndex = 4;
             this.btnRequestSnack.Text = "Request Snack";
             this.btnRequestSnack.UseVisualStyleBackColor = true;
             // 
@@ -65,7 +66,8 @@
             this.txtSnack.Location = new System.Drawing.Point(48, 56);
             this.txtSnack.Name = "txtSnack";
             this.txtSnack.Size = new System.Drawing.Size(100, 20);
-            this.txtSnack.TabIndex = 4;
+            this.txtSnack.TabIndex = 3;
+            this.txtSnack.Text = "Club Sandwich";
             // 
             // lblSnack
             // 
@@ -73,11 +75,12 @@
             this.lblSnack.Location = new System.Drawing.Point(7, 59);
             this.lblSnack.Name = "lblSnack";
             this.lblSnack.Size = new System.Drawing.Size(38, 13);
-            this.lblSnack.TabIndex = 3;
+            this.lblSnack.TabIndex = 2;
             this.lblSnack.Text = "Snack";
             // 
             // RequestSnackView
             // 
+            this.AcceptButton = this.btnRequestSnack;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 273);
