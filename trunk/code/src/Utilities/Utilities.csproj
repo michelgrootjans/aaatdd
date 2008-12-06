@@ -49,6 +49,7 @@
     <Compile Include="Presentation\IView.cs" />
     <Compile Include="Presentation\Presenter.cs" />
     <Compile Include="Repository\InMemoryRepository.cs" />
+    <Compile Include="Repository\InMemoryTable.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Mapping\Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
