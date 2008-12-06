@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Snacks.Presentation;
+using Utilities.Presentation;
 
 namespace Snacks.UI.Win
 {
@@ -17,9 +18,7 @@ namespace Snacks.UI.Win
         private void RequestSnackView_Load(object sender, EventArgs e)
         {
             btnRequestSnack.Click += delegate { RequestSnack(this, EventArgs.Empty); };
-
-            var factory = Utilities.Containers.Container.GetImplementationOf<IPresenterFactory>();
-            factory.CreatePresenterFor(this);
+            Presenter.Register(this);
         }
 
         public string UserId
