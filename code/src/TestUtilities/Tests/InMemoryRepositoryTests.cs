@@ -3,6 +3,7 @@
  * Created: zaterdag 6 december 2008
  */
 
+using System;
 using System.Linq;
 using NUnit.Framework;
 using Utilities.Repository;
@@ -13,10 +14,16 @@ namespace TestUtilities.Tests
     public class InMemoryRepositoryTests : ArrangeActAssert<IRepository>
     {
         private DummyEntity dummyEntity;
+        private readonly Random random;
+
+        public InMemoryRepositoryTests()
+        {
+            random = new Random();
+        }
 
         public override void Arrange()
         {
-            dummyEntity = new DummyEntity();
+            dummyEntity = new DummyEntity(random.Next());
         }
 
         public override IRepository CreateSUT()

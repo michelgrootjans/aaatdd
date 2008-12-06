@@ -3,11 +3,11 @@ using Utilities.Domain;
 
 namespace TestUtilities.Tests
 {
-    public class DummyEntity :Entity<Guid>
+    public class DummyEntity :Entity<int>
     {
-        public DummyEntity()
+        public DummyEntity(int id)
         {
-            Id = Guid.NewGuid();
+            Id = id;
         }
     }
 }
