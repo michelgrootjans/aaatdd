@@ -22,8 +22,6 @@ namespace Snacks
         {
             Container.Initialize(new DictionaryContainer());
 
-            // hardcode registration of services
-            //var repository = new InMemoryRepository();
             Container.Register(new PresenterFactory());
 
             Container.Register(new SnacksController(repository));
