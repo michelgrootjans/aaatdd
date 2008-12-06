@@ -11,7 +11,7 @@ using Utilities;
 namespace Snacks.Tests.Presentation
 {
     [TestFixture]
-    public class when_snackpresenter_is_told_to_request_a_snack_for_a_user : ArrangeActAssert<ISnackPresenter>
+    public class when_snackpresenter_is_told_to_request_a_snack_for_a_user : ArrangeActAssert<ISnackOrderPresenter>
     {
         private ISnacksController controller;
         private ISnackOrderView view;
@@ -29,7 +29,7 @@ namespace Snacks.Tests.Presentation
             mapper.Stub(m => m.Map(view)).Return(snackDto);
         }
 
-        public override ISnackPresenter CreateSUT()
+        public override ISnackOrderPresenter CreateSUT()
         {
             return new SnackPresenter(view);
         }

@@ -1,6 +1,7 @@
 using System.Configuration;
 using FluentNHibernate.AutoMap;
 using FluentNHibernate.Cfg;
+using Snacks.Domain;
 using Snacks.Domain.Entities;
 using Snacks.Presentation;
 using Utilities.Containers;
@@ -23,9 +24,12 @@ namespace Snacks
 
             // hardcode registration of services
             //var repository = new InMemoryRepository();
-            //Container.Register(new SnackPresenterFactory);
-            //Container.Register(new SnackDtoMapper());
-            //Container.Register(new SnackViewMapper());
+            Container.Register(new PresenterFactory());
+            IRepository repository = new InMemoryRepository();
+
+            Container.Register(new SnacksController(repository));
+            Container.Register(new SnackViewMapper());
+            Container.Register(new SnackDtoMapper());
         }
 
         private static void InitializeNHibernate()

@@ -22,7 +22,7 @@ namespace Snacks.Tests.Domain
             
         public override void Arrange()
         {
-            snackDto = new SnackOrderDto{UserId = userId, Price = 2};
+            snackDto = new SnackOrderDto{UserId = userId, SnackPrice = 2};
             user =  new User(originalUserCredit);
             clubSandwich = new Snack();
 
@@ -46,7 +46,7 @@ namespace Snacks.Tests.Domain
         [Test]
         public void should_debit_the_order_amount_from_the_users_credit()
         {
-            user.Credit.ShouldBeEqualTo(originalUserCredit - snackDto.Price);
+            user.Credit.ShouldBeEqualTo(originalUserCredit - snackDto.SnackPrice);
         }
 
         [Test]
