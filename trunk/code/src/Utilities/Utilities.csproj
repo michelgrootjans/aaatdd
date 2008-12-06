@@ -42,6 +42,10 @@
     <Compile Include="Containers\IContainer.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Mapping\IMapper.cs" />
+    <Compile Include="Presentation\IPresenter.cs" />
+    <Compile Include="Presentation\IPresenterFactory.cs" />
+    <Compile Include="Presentation\IView.cs" />
+    <Compile Include="Presentation\Presenter.cs" />
     <Compile Include="Repository\InMemoryRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Mapping\Map.cs" />

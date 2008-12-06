@@ -1,4 +1,4 @@
-namespace Snacks.Presentation
+namespace Utilities.Presentation
 {
     public interface IPresenterFactory
     {
