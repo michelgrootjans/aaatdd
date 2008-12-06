@@ -1,8 +1,13 @@
+using Utilities.Domain;
+
 namespace Snacks.Domain.Entities
 {
-    public class User : IDebitableUser
+    public class User : Entity<int>, IDebitableUser
     {
         public double Credit { get;private set; }
+
+
+        public string Name { get; set; }
 
         public User(double credit)
         {

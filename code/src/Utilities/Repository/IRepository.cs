@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Utilities.Domain;
 
 namespace Utilities.Repository
 {
@@ -7,8 +8,8 @@ namespace Utilities.Repository
     /// </summary>
     public interface IRepository
     {
-        IList<T> FindAll<T>();
-        T Get<T>(object id);
+        IEnumerable<T> FindAll<T>();
+        Entity Get<Entity>(object id) where Entity : IEntity;
         void Delete<T>(T entity);
         void Save<T>(T entity);
         void Update<T>(T entity);

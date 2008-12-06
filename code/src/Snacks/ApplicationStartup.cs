@@ -15,21 +15,27 @@ namespace Snacks
         public static void Run()
         {
             InitializeNHibernate();
-            InitializeContainer();
+            InitializeContainer(InitializeRepository());
         }
 
-        private static void InitializeContainer()
+        private static void InitializeContainer(IRepository repository)
         {
             Container.Initialize(new DictionaryContainer());
 
             // hardcode registration of services
             //var repository = new InMemoryRepository();
             Container.Register(new PresenterFactory());
-            IRepository repository = new InMemoryRepository();
 
             Container.Register(new SnacksController(repository));
             Container.Register(new SnackViewMapper());
             Container.Register(new SnackDtoMapper());
+        }
+
+        private static IRepository InitializeRepository()
+        {
+            var repository = new InMemoryRepository();
+            repository.Save(new User(0){Id = 1, Name = "Michel"});
+            return repository;
         }
 
         private static void InitializeNHibernate()
