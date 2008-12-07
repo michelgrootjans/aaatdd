@@ -12,14 +12,14 @@ using Utilities.Presentation;
 namespace Snacks.Tests.Presentation
 {
     [TestFixture]
-    public class when_presenterfactory_is_told_to_get_a_presenter_for_a_snack_view: ArrangeActAssert<IPresenterFactory>
+    public class when_presenterfactory_is_told_to_get_a_presenter_for_a_request_snack_view: ArrangeActAssert<IPresenterFactory>
     {
         private IPresenter presenter;
-        private ISnackOrderView view;
+        private IRequestSnackView view;
 
         public override void Arrange()
         {
-            view = Dependency<ISnackOrderView>();
+            view = Dependency<IRequestSnackView>();
             RegisterDependencyInContainer<ISnacksController>();
         }
 
@@ -36,7 +36,35 @@ namespace Snacks.Tests.Presentation
         [Test]
         public void should_return_a_snack_order_presenter()
         {
-            presenter.ShouldBeInstanceOf<ISnackOrderPresenter>();
+            presenter.ShouldBeInstanceOf<IRequestSnackPresenter>();
+        }
+    }
+    [TestFixture]
+    public class when_presenterfactory_is_told_to_get_a_presenter_for_a_view_snack_requests_view: ArrangeActAssert<IPresenterFactory>
+    {
+        private IPresenter presenter;
+        private IViewSnackRequestsView view;
+
+        public override void Arrange()
+        {
+            view = Dependency<IViewSnackRequestsView>();
+            RegisterDependencyInContainer<ISnacksController>();
+        }
+
+        public override IPresenterFactory CreateSUT()
+        {
+            return new PresenterFactory();
+        }
+
+        public override void Act()
+        {
+            presenter = sut.CreatePresenterFor(view);
+        }
+
+        [Test]
+        public void should_return_a_snack_order_presenter()
+        {
+            presenter.ShouldBeInstanceOf<IViewSnackRequestsPresenter>();
         }
     }
 }
