@@ -13,11 +13,11 @@ using Utilities;
 namespace Snacks.Tests.Domain
 {
     [TestFixture]
-    public class SnackDtoMapperTests : ArrangeActAssert<IMapper<SnackOrderDto, Snack>>
+    public class SnackDtoMapperTests : ArrangeActAssert<IMapper<SnackRequestDto, Snack>>
     {
         private Snack snack;
         private string snackName;
-        private SnackOrderDto snackDto;
+        private SnackRequestDto snackDto;
         private double snackPrice;
 
         public override void Arrange()
@@ -25,10 +25,10 @@ namespace Snacks.Tests.Domain
             snackName = "Club";
             snackPrice = 2.1;
 
-            snackDto = new SnackOrderDto { SnackName = snackName, SnackPrice = snackPrice};
+            snackDto = new SnackRequestDto { SnackName = snackName, SnackPrice = snackPrice};
         }
 
-        public override IMapper<SnackOrderDto, Snack> CreateSUT()
+        public override IMapper<SnackRequestDto, Snack> CreateSUT()
         {
             return new SnackDtoMapper();
         }

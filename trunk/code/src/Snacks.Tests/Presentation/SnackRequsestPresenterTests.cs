@@ -15,16 +15,16 @@ namespace Snacks.Tests.Presentation
     {
         private ISnacksController controller;
         private ISnackOrderView view;
-        private SnackOrderDto snackDto;
-        private IMapper<ISnackOrderView, SnackOrderDto> mapper;
+        private SnackRequestDto snackDto;
+        private IMapper<ISnackOrderView, SnackRequestDto> mapper;
 
         public override void Arrange()
         {
-            snackDto = new SnackOrderDto();
+            snackDto = new SnackRequestDto();
 
             view = Dependency<ISnackOrderView>();
             controller = RegisterDependencyInContainer<ISnacksController>();
-            mapper = RegisterDependencyInContainer<IMapper<ISnackOrderView, SnackOrderDto>>();
+            mapper = RegisterDependencyInContainer<IMapper<ISnackOrderView, SnackRequestDto>>();
 
             mapper.Stub(m => m.Map(view)).Return(snackDto);
         }

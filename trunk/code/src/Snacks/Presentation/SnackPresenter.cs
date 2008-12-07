@@ -21,7 +21,7 @@ namespace Snacks.Presentation
 
         private void RequestSnack(object sender, EventArgs e)
         {
-            var snackOrderDto = Map.This(view).ToA<SnackOrderDto>();
+            var snackOrderDto = Map.This(view).ToA<SnackRequestDto>();
             controller.Request(snackOrderDto);
         }
     }

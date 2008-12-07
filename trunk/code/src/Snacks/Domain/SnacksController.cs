@@ -14,13 +14,13 @@ namespace Snacks.Domain
             this.repository = repository;
         }
 
-        public void Request(SnackOrderDto snackOrderDto)
+        public void Request(SnackRequestDto snackRequestDto)
         {
-            var user = repository.Get<User>(snackOrderDto.UserId);
-            user.Debit(snackOrderDto.SnackPrice);
+            var user = repository.Get<User>(snackRequestDto.UserId);
+            user.Debit(snackRequestDto.SnackPrice);
             repository.Save(user);
 
-            var order = Map.This(snackOrderDto).ToA<Snack>();
+            var order = Map.This(snackRequestDto).ToA<Snack>();
             repository.Save(order);
         }
     }

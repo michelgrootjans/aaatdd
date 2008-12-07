@@ -4,6 +4,6 @@ namespace Snacks.Domain
 {
     public interface ISnacksController
     {
-        void Request(SnackOrderDto snackOrderDto);
+        void Request(SnackRequestDto snackRequestDto);
     }
 }

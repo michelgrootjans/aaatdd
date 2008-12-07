@@ -51,7 +51,7 @@
     <Compile Include="Domain\Entities\Snack.cs" />
     <Compile Include="Domain\SnackDtoMapper.cs" />
     <Compile Include="Domain\SnacksController.cs" />
-    <Compile Include="Dto\SnackOrderDto.cs" />
+    <Compile Include="Dto\SnackRequestDto.cs" />
     <Compile Include="Presentation\ISnackOrderView.cs" />
     <Compile Include="Presentation\ISnackOrderPresenter.cs" />
     <Compile Include="Presentation\PresenterFactory.cs" />

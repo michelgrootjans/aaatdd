@@ -13,10 +13,10 @@ using Utilities;
 namespace Snacks.Tests.Presentation
 {
     [TestFixture]
-    public class SnackViewMapperTests : ArrangeActAssert<IMapper<ISnackOrderView, SnackOrderDto>>
+    public class SnackViewMapperTests : ArrangeActAssert<IMapper<ISnackOrderView, SnackRequestDto>>
     {
         private ISnackOrderView view;
-        private SnackOrderDto dto;
+        private SnackRequestDto dto;
         private const long userId = 45;
         private const double snackPrice = 2.5;
         private const string snackName = "Club";
@@ -29,7 +29,7 @@ namespace Snacks.Tests.Presentation
             view.Stub(v => v.SnackPrice).Return(snackPrice.ToString());
         }
 
-        public override IMapper<ISnackOrderView, SnackOrderDto> CreateSUT()
+        public override IMapper<ISnackOrderView, SnackRequestDto> CreateSUT()
         {
             return new SnackViewMapper();
         }
