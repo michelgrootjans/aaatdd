@@ -36,7 +36,7 @@ namespace TestUtilities.Tests
         }
 
         [Test]
-        public void should_find_a_null_list_of_entities()
+        public void should_not_find_a_specific_entity()
         {
             var entityFound = sut.Get<DummyEntity>(dummyEntity.Id);
             entityFound.ShouldBeNull();
