@@ -5,7 +5,7 @@ using Utilities.Presentation;
 
 namespace Snacks.UI.Win
 {
-    public partial class RequestSnackView : Form, ISnackOrderView
+    public partial class RequestSnackView : Form, IRequestSnackView
     {
         public event EventHandler RequestSnack;
 

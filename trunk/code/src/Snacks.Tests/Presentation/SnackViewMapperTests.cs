@@ -13,9 +13,9 @@ using Utilities;
 namespace Snacks.Tests.Presentation
 {
     [TestFixture]
-    public class SnackViewMapperTests : ArrangeActAssert<IMapper<ISnackOrderView, SnackRequestDto>>
+    public class SnackViewMapperTests : ArrangeActAssert<IMapper<IRequestSnackView, SnackRequestDto>>
     {
-        private ISnackOrderView view;
+        private IRequestSnackView view;
         private SnackRequestDto dto;
         private const long userId = 45;
         private const double snackPrice = 2.5;
@@ -23,13 +23,13 @@ namespace Snacks.Tests.Presentation
 
         public override void Arrange()
         {
-            view = Dependency<ISnackOrderView>();
+            view = Dependency<IRequestSnackView>();
             view.Stub(v => v.UserId).Return(userId.ToString());
             view.Stub(v => v.SnackName).Return(snackName);
             view.Stub(v => v.SnackPrice).Return(snackPrice.ToString());
         }
 
-        public override IMapper<ISnackOrderView, SnackRequestDto> CreateSUT()
+        public override IMapper<IRequestSnackView, SnackRequestDto> CreateSUT()
         {
             return new SnackViewMapper();
         }

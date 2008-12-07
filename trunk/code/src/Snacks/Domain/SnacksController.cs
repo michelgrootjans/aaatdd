@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Snacks.Domain.Entities;
 using Snacks.Dto;
 using Utilities.Mapping;
@@ -22,6 +23,14 @@ namespace Snacks.Domain
 
             var order = Map.This(snackRequestDto).ToA<Snack>();
             repository.Save(order);
+        }
+
+        public IEnumerable<SnackRequestDto> GetAllSnackRequests()
+        {
+            var snacks = repository.FindAll<Snack>();
+
+            foreach (var snack in snacks)
+                yield return Map.This(snack).ToA<SnackRequestDto>();
         }
     }
 }

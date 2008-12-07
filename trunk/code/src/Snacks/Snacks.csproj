@@ -52,11 +52,14 @@
     <Compile Include="Domain\SnackDtoMapper.cs" />
     <Compile Include="Domain\SnacksController.cs" />
     <Compile Include="Dto\SnackRequestDto.cs" />
-    <Compile Include="Presentation\ISnackOrderView.cs" />
-    <Compile Include="Presentation\ISnackOrderPresenter.cs" />
+    <Compile Include="Presentation\IRequestSnackView.cs" />
+    <Compile Include="Presentation\IRequestSnackPresenter.cs" />
+    <Compile Include="Presentation\IViewSnackRequestsPresenter.cs" />
+    <Compile Include="Presentation\IViewSnackRequestsView.cs" />
     <Compile Include="Presentation\PresenterFactory.cs" />
-    <Compile Include="Presentation\SnackPresenter.cs" />
+    <Compile Include="Presentation\RequestSnackPresenter.cs" />
     <Compile Include="Presentation\SnackViewMapper.cs" />
+    <Compile Include="Presentation\ViewSnackRequestsPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\Entities\User.cs" />
   </ItemGroup>

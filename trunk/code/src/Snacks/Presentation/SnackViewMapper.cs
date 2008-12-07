@@ -3,9 +3,9 @@ using Utilities;
 
 namespace Snacks.Presentation
 {
-    public class SnackViewMapper : IMapper<ISnackOrderView, SnackRequestDto>
+    public class SnackViewMapper : IMapper<IRequestSnackView, SnackRequestDto>
     {
-        public SnackRequestDto Map(ISnackOrderView view)
+        public SnackRequestDto Map(IRequestSnackView view)
         {
             var snackOrderDto = new SnackRequestDto();
 
