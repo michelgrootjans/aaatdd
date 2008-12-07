@@ -61,6 +61,7 @@ namespace TestUtilities.Tests
         {
             var entities = sut.FindAll<DummyEntity>();
             entities.ToList().Count.ShouldBeEqualTo(1);
+            entities.ToList()[0].ShouldBeSameAs(dummyEntity);
         }
 
         [Test]

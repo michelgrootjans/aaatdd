@@ -1,0 +1,26 @@
+Goal
+----
+This is a simple application demonstrating the following designs/practices:
+- BDD with AAA test structure
+- Container
+- Repository pattern with implementation Fluent NHibernate
+- Explore if different UI technologies could be applied with the same implementation (WinForms, asp.net, MVC, WPF, Silverlight)
+
+Functionality
+-------------
+This application could be used inside a company. The general idea is as follows:
+- an emplyee arrives at work in the morning. He opens up the application and adds a request for a snack (e.g. a Club Sandwich)
+- at 10:00 AM, the secretary opens up the application and prints out all requests. (S)he orders all the requested snacks from the snack shop.
+- at noon, when the snacks arive, everybody's happy ;-)
+
+The application should allow every employee to request a snack. The requests have to be deduced from their account.
+The application should allow a secretary to print out the requests of the day.
+
+Bugs
+----
+1) Cannot find user in the repository
+To reproduce: 
+- start the winforms app with the InMemoryRepository
+- prepopulate the repository with a user with id 1
+Result:
+- user Id 1 cannot be found in the repository
