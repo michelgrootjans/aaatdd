@@ -3,11 +3,11 @@ using Utilities;
 
 namespace Snacks.Presentation
 {
-    public class SnackViewMapper : IMapper<ISnackOrderView, SnackOrderDto>
+    public class SnackViewMapper : IMapper<ISnackOrderView, SnackRequestDto>
     {
-        public SnackOrderDto Map(ISnackOrderView view)
+        public SnackRequestDto Map(ISnackOrderView view)
         {
-            var snackOrderDto = new SnackOrderDto();
+            var snackOrderDto = new SnackRequestDto();
 
             long userId;
             long.TryParse(view.UserId, out userId);

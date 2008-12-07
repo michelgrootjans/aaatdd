@@ -9,14 +9,14 @@ using Utilities;
 
 namespace Snacks.Domain
 {
-    public class SnackDtoMapper : IMapper<SnackOrderDto, Snack>
+    public class SnackDtoMapper : IMapper<SnackRequestDto, Snack>
     {
-        public Snack Map(SnackOrderDto snackOrderDto)
+        public Snack Map(SnackRequestDto snackRequestDto)
         {
             var snack = new Snack();
 
-            snack.Name = snackOrderDto.SnackName;
-            snack.Price = snackOrderDto.SnackPrice;
+            snack.Name = snackRequestDto.SnackName;
+            snack.Price = snackRequestDto.SnackPrice;
 
             return snack;
         }

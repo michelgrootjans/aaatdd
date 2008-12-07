@@ -1,6 +1,6 @@
 namespace Snacks.Dto
 {
-    public class SnackOrderDto
+    public class SnackRequestDto
     {
         public long UserId { get; set; }
         public string SnackName { get; set; }
