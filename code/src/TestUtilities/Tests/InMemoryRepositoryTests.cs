@@ -45,7 +45,7 @@ namespace TestUtilities.Tests
         [Test]
         public void should_allow_to_delete_a_non_existing_entity()
         {
-            sut.Delete(dummyEntity);
+            sut.Delete(dummyEntity);//should not throw an exception
         }
     }    
     
