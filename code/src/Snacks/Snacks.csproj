@@ -47,10 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationStartup.cs" />
-    <Compile Include="Domain\ISnacksController.cs" />
+    <Compile Include="Domain\ISnackTasks.cs" />
     <Compile Include="Domain\Entities\Snack.cs" />
     <Compile Include="Domain\SnackDtoMapper.cs" />
-    <Compile Include="Domain\SnacksController.cs" />
+    <Compile Include="Domain\SnackTasks.cs" />
     <Compile Include="Dto\SnackRequestDto.cs" />
     <Compile Include="Presentation\IRequestSnackView.cs" />
     <Compile Include="Presentation\IRequestSnackPresenter.cs" />

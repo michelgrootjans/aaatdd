@@ -11,7 +11,7 @@ using Utilities.Repository;
 
 namespace Snacks.Tests.Domain
 {
-    public class SnacksControllerTest : ArrangeActAssert<ISnacksController>
+    public class SnacksControllerTest : ArrangeActAssert<ISnackTasks>
     {
         protected IRepository repository;
 
@@ -20,9 +20,9 @@ namespace Snacks.Tests.Domain
             repository = Dependency<IRepository>();
         }
 
-        public override ISnacksController CreateSUT()
+        public override ISnackTasks CreateSUT()
         {
-            return new SnacksController(repository);
+            return new SnackTasks(repository);
         }
     }
 
@@ -42,7 +42,7 @@ namespace Snacks.Tests.Domain
 
             snackDto = new SnackRequestDto{UserId = userId, SnackPrice = 2};
             user =  new User(originalUserCredit);
-            clubSandwich = new Snack();
+            clubSandwich = new Snack{Price = snackDto.SnackPrice};
 
             mapper = RegisterDependencyInContainer<IMapper<SnackRequestDto, Snack>>();
 
@@ -68,9 +68,10 @@ namespace Snacks.Tests.Domain
         }
 
         [Test]
-        public void should_save_the_order_to_the_repository()
+        public void user_should_have_a_snack_assigned()
         {
-            repository.AssertWasCalled(r => r.Save(clubSandwich));
+            user.Snacks.Count().ShouldBeEqualTo(1);
+            user.Snacks[0].ShouldBeSameAs(clubSandwich);
         }
     }
     

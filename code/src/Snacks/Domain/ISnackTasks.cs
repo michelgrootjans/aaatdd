@@ -3,7 +3,7 @@ using Snacks.Dto;
 
 namespace Snacks.Domain
 {
-    public interface ISnacksController
+    public interface ISnackTasks
     {
         void Request(SnackRequestDto snackRequestDto);
         IEnumerable<SnackRequestDto> GetAllSnackRequests();

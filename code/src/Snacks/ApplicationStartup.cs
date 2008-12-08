@@ -24,7 +24,7 @@ namespace Snacks
 
             Container.Register(new PresenterFactory());
 
-            Container.Register(new SnacksController(repository));
+            Container.Register(new SnackTasks(repository));
             Container.Register(new SnackViewMapper());
             Container.Register(new SnackDtoMapper());
         }

@@ -1,27 +1,36 @@
+using System.Collections.Generic;
 using Utilities.Domain;
 
 namespace Snacks.Domain.Entities
 {
-    public class User : Entity<int>, IDebitableUser
+    public class User : Entity<int>
     {
-        public double Credit { get;private set; }
-
-
-        public string Name { get; set; }
+        private readonly List<Snack> snaks;
 
         public User(double credit)
         {
             Credit = credit;
+            snaks = new List<Snack>();
         }
 
-        public void Debit(double amount)
+        public double Credit { get;private set; }
+
+        public string Name { get; set; }
+
+        public IList<Snack> Snacks
+        {
+            get { return snaks; }
+        }
+
+        public void Request(Snack snack)
+        {
+            Debit(snack.Price);
+            snaks.Add(snack);
+        }
+
+        private void Debit(double amount)
         {
             Credit -= amount;
         }
-    }
-
-    public interface IDebitableUser
-    {
-        void Debit(double amount);
     }
 }

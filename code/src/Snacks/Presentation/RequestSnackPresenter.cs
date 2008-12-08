@@ -9,12 +9,12 @@ namespace Snacks.Presentation
     public class RequestSnackPresenter : IRequestSnackPresenter
     {
         private readonly IRequestSnackView view;
-        private readonly ISnacksController controller;
+        private readonly ISnackTasks tasks;
 
         public RequestSnackPresenter(IRequestSnackView requestSnackView)
         {
             view = requestSnackView;
-            controller = Container.GetImplementationOf<ISnacksController>();
+            tasks = Container.GetImplementationOf<ISnackTasks>();
             
             requestSnackView.RequestSnack += RequestSnack;
         }
@@ -22,7 +22,7 @@ namespace Snacks.Presentation
         private void RequestSnack(object sender, EventArgs e)
         {
             var snackOrderDto = Map.This(view).ToA<SnackRequestDto>();
-            controller.Request(snackOrderDto);
+            tasks.Request(snackOrderDto);
         }
     }
 }
