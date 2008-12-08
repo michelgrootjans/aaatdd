@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Utilities.Domain;
 
@@ -13,7 +14,7 @@ namespace Snacks.Domain.Entities
             snaks = new List<Snack>();
         }
 
-        public double Credit { get;private set; }
+        public double Credit { get; private set; }
 
         public string Name { get; set; }
 
@@ -30,6 +31,8 @@ namespace Snacks.Domain.Entities
 
         private void Debit(double amount)
         {
+            if (Credit < amount)
+                throw new InvalidOperationException("User doesn't have enough credits");
             Credit -= amount;
         }
     }

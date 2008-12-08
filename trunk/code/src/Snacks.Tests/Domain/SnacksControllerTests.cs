@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
@@ -11,13 +12,28 @@ using Utilities.Repository;
 
 namespace Snacks.Tests.Domain
 {
-    public class SnacksControllerTest : ArrangeActAssert<ISnackTasks>
+    public class SnackTasksTest : ArrangeActAssert<ISnackTasks>
     {
         protected IRepository repository;
+        private IMapper<SnackRequestDto, Snack> mapper;
+        protected SnackRequestDto snackDto;
+        protected Snack clubSandwich;
+        protected User user;
+        protected double snackPrice = 1;
+        protected double originalUserCredit = 25;
+        protected const long userId = 54;
 
         public override void Arrange()
         {
+            snackDto = new SnackRequestDto { UserId = userId, SnackPrice = snackPrice };
+            user = new User(originalUserCredit);
+            clubSandwich = new Snack { Price = snackPrice };
+
             repository = Dependency<IRepository>();
+            mapper = RegisterDependencyInContainer<IMapper<SnackRequestDto, Snack>>();
+
+            mapper.Stub(m => m.Map(snackDto)).Return(clubSandwich);
+            repository.Stub(r => r.Get<User>(userId)).Return(user);
         }
 
         public override ISnackTasks CreateSUT()
@@ -27,27 +43,13 @@ namespace Snacks.Tests.Domain
     }
 
     [TestFixture]
-    public class when_snackscontroller_is_told_to_requesta_new_snack : SnacksControllerTest
+    public class when_snackscontroller_is_told_to_request_a_new_snack : SnackTasksTest
     {
-        private IMapper<SnackRequestDto, Snack> mapper;
-        private SnackRequestDto snackDto;
-        private Snack clubSandwich;
-        private User user;
-        private const double originalUserCredit = 25;
-        private const long userId = 54;
-            
         public override void Arrange()
         {
+            snackPrice = 1;
+            originalUserCredit = 2;
             base.Arrange();
-
-            snackDto = new SnackRequestDto{UserId = userId, SnackPrice = 2};
-            user =  new User(originalUserCredit);
-            clubSandwich = new Snack{Price = snackDto.SnackPrice};
-
-            mapper = RegisterDependencyInContainer<IMapper<SnackRequestDto, Snack>>();
-
-            mapper.Stub(m => m.Map(snackDto)).Return(clubSandwich);
-            repository.Stub(r => r.Get<User>(userId)).Return(user);
         }
 
         public override void Act()
@@ -74,9 +76,35 @@ namespace Snacks.Tests.Domain
             user.Snacks[0].ShouldBeSameAs(clubSandwich);
         }
     }
+
+    [TestFixture]
+    public class when_snackscontroller_is_told_to_request_a_new_snack_and_user_doesnt_have_enough_credits : SnackTasksTest
+    {
+        private Action requestSnack;
+
+        public override void Arrange()
+        {
+            snackPrice = 2;
+            originalUserCredit = 1;
+
+            base.Arrange();
+        }
+
+        public override void Act()
+        {
+            requestSnack = () => sut.Request(snackDto);
+        }
+
+        [Test]
+        public void should_throw_an_exception()
+        {
+            requestSnack.ShouldThrow<InvalidOperationException>();
+        }
+
+    }
     
     [TestFixture]
-    public class when_snackscontroller_is_told_to_get_all_snackrequests : SnacksControllerTest
+    public class when_snacktasks_is_told_to_get_all_snackrequests : SnackTasksTest
     {
         private IMapper<Snack, SnackRequestDto> mapper;
         private Snack snack1;
