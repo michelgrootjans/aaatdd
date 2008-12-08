@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 using Snacks.Domain;
 using Snacks.Dto;
@@ -13,7 +12,7 @@ namespace Snacks.Tests.Presentation
     [TestFixture]
     public class when_snackpresenter_is_told_to_request_a_snack_for_a_user : ArrangeActAssert<IRequestSnackPresenter>
     {
-        private ISnacksController controller;
+        private ISnackTasks tasks;
         private IRequestSnackView view;
         private SnackRequestDto snackDto;
         private IMapper<IRequestSnackView, SnackRequestDto> mapper;
@@ -23,7 +22,7 @@ namespace Snacks.Tests.Presentation
             snackDto = new SnackRequestDto();
 
             view = Dependency<IRequestSnackView>();
-            controller = RegisterDependencyInContainer<ISnacksController>();
+            tasks = RegisterDependencyInContainer<ISnackTasks>();
             mapper = RegisterDependencyInContainer<IMapper<IRequestSnackView, SnackRequestDto>>();
 
             mapper.Stub(m => m.Map(view)).Return(snackDto);
@@ -48,7 +47,7 @@ namespace Snacks.Tests.Presentation
         [Test]
         public void should_call_the_snackcontroller()
         {
-            controller.AssertWasCalled(c => c.Request(snackDto));
+            tasks.AssertWasCalled(c => c.Request(snackDto));
         }
     }
 }

@@ -6,26 +6,25 @@
 using System;
 using Snacks.Domain;
 using Utilities.Containers;
-using Utilities.Presentation;
 
 namespace Snacks.Presentation
 {
     public class ViewSnackRequestsPresenter : IViewSnackRequestsPresenter
     {
         private readonly IViewSnackRequestsView view;
-        private readonly ISnacksController controller;
+        private readonly ISnackTasks tasks;
 
         public ViewSnackRequestsPresenter(IViewSnackRequestsView view)
         {
             this.view = view;
-            controller = Container.GetImplementationOf<ISnacksController>();
+            tasks = Container.GetImplementationOf<ISnackTasks>();
 
             view.GetAllSnackRequests += GetAllSnackRequests;
         }
 
         private void GetAllSnackRequests(object sender, EventArgs e)
         {
-            view.SnackRequests = controller.GetAllSnackRequests();
+            view.SnackRequests = tasks.GetAllSnackRequests();
         }
     }
 }

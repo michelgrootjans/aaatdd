@@ -6,10 +6,8 @@
 using System;
 using NUnit.Framework;
 using Snacks.Domain;
-using Snacks.Domain.Entities;
 using Snacks.Presentation;
 using TestUtilities;
-using Utilities.Repository;
 using Rhino.Mocks;
 
 namespace Snacks.Tests.Presentation
@@ -18,12 +16,12 @@ namespace Snacks.Tests.Presentation
     public class ViewSnackRequestsPresenterTests : ArrangeActAssert<IViewSnackRequestsPresenter>
     {
         private IViewSnackRequestsView view;
-        private ISnacksController controller;
+        private ISnackTasks tasks;
 
         public override void Arrange()
         {
             view = Dependency<IViewSnackRequestsView>();
-            controller = RegisterDependencyInContainer<ISnacksController>();
+            tasks = RegisterDependencyInContainer<ISnackTasks>();
         }
 
         public override IViewSnackRequestsPresenter CreateSUT()
@@ -39,7 +37,7 @@ namespace Snacks.Tests.Presentation
         [Test]
         public void should_get_requests_from_repository()
         {
-            controller.AssertWasCalled(r => r.GetAllSnackRequests());
+            tasks.AssertWasCalled(r => r.GetAllSnackRequests());
         }
     }
 }

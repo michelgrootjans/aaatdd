@@ -20,7 +20,7 @@ namespace Snacks.Tests.Presentation
         public override void Arrange()
         {
             view = Dependency<IRequestSnackView>();
-            RegisterDependencyInContainer<ISnacksController>();
+            RegisterDependencyInContainer<ISnackTasks>();
         }
 
         public override IPresenterFactory CreateSUT()
@@ -48,7 +48,7 @@ namespace Snacks.Tests.Presentation
         public override void Arrange()
         {
             view = Dependency<IViewSnackRequestsView>();
-            RegisterDependencyInContainer<ISnacksController>();
+            RegisterDependencyInContainer<ISnackTasks>();
         }
 
         public override IPresenterFactory CreateSUT()

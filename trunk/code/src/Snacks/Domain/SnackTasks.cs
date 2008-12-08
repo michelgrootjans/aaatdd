@@ -6,23 +6,21 @@ using Utilities.Repository;
 
 namespace Snacks.Domain
 {
-    public class SnacksController : ISnacksController
+    public class SnackTasks : ISnackTasks
     {
         private readonly IRepository repository;
 
-        public SnacksController(IRepository repository)
+        public SnackTasks(IRepository repository)
         {
             this.repository = repository;
         }
 
         public void Request(SnackRequestDto snackRequestDto)
         {
+            var snack = Map.This(snackRequestDto).ToA<Snack>();
             var user = repository.Get<User>(snackRequestDto.UserId);
-            user.Debit(snackRequestDto.SnackPrice);
+            user.Request(snack);
             repository.Save(user);
-
-            var order = Map.This(snackRequestDto).ToA<Snack>();
-            repository.Save(order);
         }
 
         public IEnumerable<SnackRequestDto> GetAllSnackRequests()
