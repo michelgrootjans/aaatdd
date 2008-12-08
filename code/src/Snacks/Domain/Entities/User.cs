@@ -3,7 +3,7 @@ using Utilities.Domain;
 
 namespace Snacks.Domain.Entities
 {
-    public class User : Entity<int>
+    public class User : Entity<long>
     {
         private readonly List<Snack> snaks;
 
