@@ -18,9 +18,4 @@ The application should allow a secretary to print out the requests of the day.
 
 Bugs
 ----
-1) Cannot find user in the repository
-To reproduce: 
-- start the winforms app with the InMemoryRepository
-- prepopulate the repository with a user with id 1
-Result:
-- user Id 1 cannot be found in the repository
+none at the moment
