@@ -13,6 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snacks.UI.Win", "src\Snacks
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0E472927-BA2A-452C-A27E-E93B6485D7B3}"
 	ProjectSection(SolutionItems) = preProject
+		DropDb.bat = DropDb.bat
 		Migrate.bat = Migrate.bat
 		Notes.txt = Notes.txt
 	EndProjectSection
