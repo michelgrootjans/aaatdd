@@ -4,6 +4,7 @@ This is a simple application demonstrating the following designs/practices:
 - BDD with AAA test structure
 - Container
 - Repository pattern with implementation Fluent NHibernate
+- Migrator.net for database versionings
 - Explore if different UI technologies could be applied with the same implementation (WinForms, asp.net, MVC, WPF, Silverlight)
 
 Functionality
